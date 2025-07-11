@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="sound_test.Setting.USC.TaskSetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:sound_test.Setting.USC"
+             mc:Ignorable="d" 
+             Background="White"
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Add Item" Width="100" HorizontalAlignment="Left" Margin="5"
+                Command="{Binding AddItemCommand}"/>
+            <Button  Content="Save" Width="100" HorizontalAlignment="Left" Margin="5"
+         Command="{Binding SaveItemCommand}"/>
+
+        </StackPanel>
+
+        <ListView Grid.Row="1" Margin="5" ItemsSource="{Binding Items}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="频率" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Freq, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"
+                                         BorderThickness="0" Background="Transparent"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="强度DBSPL" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding DBSPL, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"
+                                         BorderThickness="0" Background="Transparent"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="持续时间" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Enduring_Sec, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"
+                      BorderThickness="0" Background="Transparent"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete" Command="{Binding DeleteItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="sound_test.app.slaveTCPscan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sound_test.app"
+        mc:Ignorable="d"
+        Title="局域网设备扫描" Height="200" Width="400">
+    <Grid>
+        <!-- 弹出窗口 -->
+        <Popup Name="ProgressPopup" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Background="LightGray" BorderBrush="Black" BorderThickness="2" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="正在处理中..." HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                    <ProgressBar Name="progressBar" Width="200" Height="25" IsIndeterminate="False" Maximum="100"/>
+                </StackPanel>
+            </Border>
+        </Popup>
+
+        <!-- 一个按钮触发进度条 -->
+        <Button Content="开始任务" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Click="StartTask"/>
+    </Grid>
+</Window>

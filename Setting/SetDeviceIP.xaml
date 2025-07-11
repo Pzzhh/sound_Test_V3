@@ -1,0 +1,14 @@
+﻿<Window x:Class="sound_test.Setting.SetDeviceIP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sound_test.Setting"
+        mc:Ignorable="d"
+        Title="校准模式" Height="200" Width="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="输入设备IP"/>
+        <TextBox x:Name="InputTextBox" Height="40"/>
+        <Button Content="确定" Click="Button_Click"  Width="60" HorizontalAlignment="Right"/>
+    </StackPanel>
+</Window>
