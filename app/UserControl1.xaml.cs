@@ -414,11 +414,13 @@ namespace sound_test
                         Newcell.StatusBrush = Brushes.DarkGreen;
                         if (add_str.Length > 0)
                         {
-                            Newcell.dbhl_Adj = add_str;
+                            //Newcell.dbhl_Adj = add_str;
+                            Newcell.LEarStatus = add_str;
                         }
                         else
                         {
-                            Newcell.dbhl_Adj = "";
+                            Newcell.LEarStatus = "";
+                            //Newcell.dbhl_Adj = "";
                         }
                         examDetail[index] = Newcell;
                     }
@@ -432,7 +434,8 @@ namespace sound_test
                         foreach (var cell in examDetail)
                         {
                             cell.Status = "";
-                            cell.dbhl_Adj = "";
+                            cell.Clean_dbhl_Adj = "";
+                            //cell.dbhl_Adj = "";
                             cell.Time = "";
                         }
                     }
@@ -442,7 +445,8 @@ namespace sound_test
                         if (cell != null)
                         {
                             cell.Status = "";
-                            cell.dbhl_Adj = "";
+                            cell.Clean_dbhl_Adj = "";
+                            //cell.dbhl_Adj = "";
                             cell.Time = "";
                         }
                     }
@@ -607,7 +611,8 @@ namespace sound_test
             if (sender is MenuItem menuItem && menuItem.CommandParameter is TaskItem item)
             {
                 item.Status = "";
-                item.dbhl_Adj = "";
+                //item.dbhl_Adj = "";
+                item.Clean_dbhl_Adj = "";
                 item.Time = "";
                 var view = CollectionViewSource.GetDefaultView(examDetail);
                 view.Refresh();
@@ -645,7 +650,8 @@ namespace sound_test
             foreach (var item in examDetail)
             {
                 item.Status = "";
-                item.dbhl_Adj = "";
+                //item.dbhl_Adj = "";
+                item.Clean_dbhl_Adj = "";
                 item.Time = "";
             }
             var view = CollectionViewSource.GetDefaultView(examDetail);
@@ -758,9 +764,9 @@ namespace sound_test
             get
             {
                 string str = "";
-                if (LEarStatus.Length > 0)
+                if (!string.IsNullOrEmpty(LEarStatus))
                     str += $" {LEarStatus}";
-                if (REarStatus.Length > 0)
+                if (!string.IsNullOrEmpty(REarStatus))
                     str += $" {REarStatus}";
                 return str;
             }

@@ -238,7 +238,7 @@ namespace sound_test.app
             int f = (int)e._frep;
             int v = (int)frequencyConverter.ConvertToDbSPL(f, DB);
             int t = (int)e._enduring_ms;
-            string Result = $"F:{f} V:{v} T:{t} LR:{0}";
+            string Result = $"F:{f} V:{v} T:{t} LR:{1}";
             return Result;
         }
 
@@ -657,7 +657,7 @@ namespace sound_test.app
 
             // 计算dBSPL
             double dbSPL = dbHL + interpolatedSPL;
-            return dbHL;
+            return dbSPL;
         }
     }
 

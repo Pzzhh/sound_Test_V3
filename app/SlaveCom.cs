@@ -85,7 +85,6 @@ namespace sound_test.app
 
             var task = await Getblueinfo();
 
-
             if (task.isConnect == 0)
             {
                 result.isError = "耳机未连接";
@@ -167,6 +166,21 @@ namespace sound_test.app
                 }
             }
             return new BlueInfoTyped() { isConnect = 1, Battery = 50 };
+        }
+
+        public async void SetLed()
+        {
+            var RamMsg = await client.SendAndRead($"req,led;");
+            if (RamMsg == null)
+            {
+                ConnectedEvent?.Invoke(false);
+                return;     //tcp 断开 
+            }
+            var MsgLine = RamMsg.Split(";");
+            if (MsgLine.Length > 0)
+            {
+
+            }
         }
 
         public async Task<String> GetDevSn()

@@ -277,6 +277,7 @@ namespace sound_test.Setting
             _settings.Examination.MinDelay = 1;
             _settings.Examination.MaxDelay = 3;
             _settings.Examination.MaxDb = 100;
+            _settings.Examination.DefaultVolumeLevel = 40;
             _settings.Examination.MaxDb = 100;
             //_settings.ScanIP = "192.168.137.78";
             _settings.Calibration.MaxFreq = 8500.0f;
